@@ -12,11 +12,12 @@ const PictureOfTheDay = () => {
             .get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
 
             .then(imgObject => {
-                console.log(imgObject);
+                setPicture(imgObject.data.url)
+                console.log(imgObject.data);
             })
 
             .catch(err => {
-                console.log(err);
+                alert(err);
             });
     }, []);
 
