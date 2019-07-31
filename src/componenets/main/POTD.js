@@ -13,7 +13,7 @@ const placeHolderText = 'Lorem Ipsum blipsum crimson ripsum shnipsum calipsum bl
 const placeHolderDate = '07/30/2019';
 
 
-const PictureOfTheDay = () => {
+const PictureOfTheDay = (props) => {
 
     const [picture, setPicture] = useState(placeHolderImg);
     const [explanation, setExplanation] = useState(placeHolderText);
@@ -21,13 +21,14 @@ const PictureOfTheDay = () => {
 
     useEffect(() => {
         axios
-            .get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
+            .get(`https://api.nasa.gov/planetary/apod?api_key=Fa76I6ybXCSv2LREPYjMwrsJD930bqwZnCYQNqBR&date=${props.date}`)
 
             .then(dataObject => {
                 setPicture(dataObject.data.url)
                 setExplanation(dataObject.data.explanation);
                 setDate(dataObject.data.date);
                 console.log(dataObject.data);
+
             })
 
             .catch(err => {
