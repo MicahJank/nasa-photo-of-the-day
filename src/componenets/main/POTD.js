@@ -9,7 +9,7 @@ import Date from './Date.js';
 
 // PLACEHOLDER
 import placeHolderImg from '../../placeholder.jpg';
-const placeHolderText = 'Lorem Ipsum blipsum crimson ripsum shnipsum calipsum blipsum';
+const placeHolderText = 'Lorem Ipsum blipsum crimson ripsum shnipsum calipsum blipsum, Lorem Ipsum blipsum crimson ripsum shnipsum calipsum blipsum,Lorem Ipsum blipsum crimson ripsum shnipsum calipsum blipsum. Lorem Ipsum blipsum crimson ripsum shnipsum calipsum blipsum Lorem Ipsum blipsum crimson ripsum shnipsum calipsum blipsumLorem Ipsum blipsum crimson ripsum shnipsum calipsum blipsumLorem Ipsum blipsum crimson ripsum shnipsum calipsum blipsum';
 const placeHolderDate = '07/30/2019';
 
 
@@ -19,19 +19,21 @@ const PictureOfTheDay = () => {
     const [explanation, setExplanation] = useState(placeHolderText);
     const [date, setDate] = useState(placeHolderDate);
 
-    // useEffect(() => {
-    //     axios
-    //         .get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
+    useEffect(() => {
+        axios
+            .get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
 
-    //         .then(imgObject => {
-    //             setPicture(imgObject.data.url)
-    //             console.log(imgObject.data);
-    //         })
+            .then(dataObject => {
+                setPicture(dataObject.data.url)
+                setExplanation(dataObject.data.explanation);
+                setDate(dataObject.data.date);
+                console.log(dataObject.data);
+            })
 
-    //         .catch(err => {
-    //             alert(err);
-    //         });
-    // }, []);
+            .catch(err => {
+                alert(err);
+            });
+    }, []);
 
     // TODO uncommment above and re set variables in the properties to reflect the data.
 
@@ -41,7 +43,7 @@ const PictureOfTheDay = () => {
         <div className="main-picture">
             <img src={picture} alt='From Nasa' />
         </div>
-        <div>
+        <div className="info-paragraph">
             <Explanation explanation={explanation} />
         </div>
         </>
