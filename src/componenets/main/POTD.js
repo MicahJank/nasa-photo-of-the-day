@@ -2,7 +2,15 @@ import React, { useState, useEffect} from "react";
 
 import axios from "axios";
 
+// Components
+import Explanation from './Explanation.js';
+import Date from './Date.js';
+
+
+// PLACEHOLDER - WILL BE DELETED
 import placeHolderImg from '../../placeholder.jpg';
+const explanationText = 'Lorem Ipsum blipsum crimson ripsum shnipsum calipsum blipsum';
+const dateText = '07/30/2019';
 
 
 const PictureOfTheDay = () => {
@@ -23,12 +31,18 @@ const PictureOfTheDay = () => {
     //         });
     // }, []);
 
-    // TODO uncommment above and remove setPicture below
+    // TODO uncommment above and re set variables in the properties to reflect the data.
 
     return (
+        <>
+        <Date date={dateText}/>
         <div className="main-picture">
             <img src={placeHolderImg} alt='From Nasa' />
         </div>
+        <div>
+            <Explanation explanation={explanationText} />
+        </div>
+        </>
     )
 };
 
