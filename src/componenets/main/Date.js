@@ -3,9 +3,7 @@ import React from 'react';
 const Date = ( { date }) => {
 
     return (
-        <select>
-            <option>{date}</option>
-        </select>
+        <h5>{date}</h5>
     );
 };
 
