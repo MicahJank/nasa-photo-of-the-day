@@ -38,8 +38,8 @@ function App() {
     <div className="App">
       <Header />
       <div className='POTD-Container'>
-        {dates.map(date => {
-          return <POTD date={date} />;
+        {dates.map((date, i) => {
+          return <POTD date={date} i={i}/>;
         })}
       </div>
     </div>

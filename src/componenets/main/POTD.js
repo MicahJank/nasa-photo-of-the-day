@@ -53,7 +53,7 @@ const PictureOfTheDay = (props) => {
             <img src={picture} alt='From Nasa' />
         </div>
         <div className="info-paragraph">
-            <Explanation explanation={explanation} />
+            <Explanation explanation={explanation} i={props.i}/>
         </div>
         </>
     )
