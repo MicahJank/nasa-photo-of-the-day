@@ -7,15 +7,17 @@ import Explanation from './Explanation.js';
 import Date from './Date.js';
 
 
-// PLACEHOLDER - WILL BE DELETED
+// PLACEHOLDER
 import placeHolderImg from '../../placeholder.jpg';
-const explanationText = 'Lorem Ipsum blipsum crimson ripsum shnipsum calipsum blipsum';
-const dateText = '07/30/2019';
+const placeHolderText = 'Lorem Ipsum blipsum crimson ripsum shnipsum calipsum blipsum';
+const placeHolderDate = '07/30/2019';
 
 
 const PictureOfTheDay = () => {
 
-    const [picture, setPicture] = useState('');
+    const [picture, setPicture] = useState(placeHolderImg);
+    const [explanation, setExplanation] = useState(placeHolderText);
+    const [date, setDate] = useState(placeHolderDate);
 
     // useEffect(() => {
     //     axios
@@ -35,12 +37,12 @@ const PictureOfTheDay = () => {
 
     return (
         <>
-        <Date date={dateText}/>
+        <Date date={date}/>
         <div className="main-picture">
-            <img src={placeHolderImg} alt='From Nasa' />
+            <img src={picture} alt='From Nasa' />
         </div>
         <div>
-            <Explanation explanation={explanationText} />
+            <Explanation explanation={explanation} />
         </div>
         </>
     )
