@@ -27,8 +27,11 @@ const PictureOfTheDay = (props) => {
             .get(`https://api.nasa.gov/planetary/apod?api_key=Fa76I6ybXCSv2LREPYjMwrsJD930bqwZnCYQNqBR&date=${props.date}`)
 
             .then(dataObject => {
-                setPicture(dataObject.data.url)
+                // Below is needed so that only the first picture displays an HD picture, this is needed
+                // because the first picture is bigger and needs to be clearer as a result.
+                props.i === 0 ? setPicture(dataObject.data.hdurl) : setPicture(dataObject.data.url);
                 setExplanation(dataObject.data.explanation);
+
                 setDate(dataObject.data.date);
                 setTitle(dataObject.data.title);
                 console.log(dataObject.data);
