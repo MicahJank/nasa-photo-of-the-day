@@ -1,7 +1,9 @@
 import React, { useState, useEffect} from "react";
 
 import axios from "axios";
+import styled from 'styled-components';
 
+// styled components;
 // Components
 import Explanation from './Explanation.js';
 import Date from './Date.js';
