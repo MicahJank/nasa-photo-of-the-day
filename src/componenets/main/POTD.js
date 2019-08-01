@@ -3,7 +3,6 @@ import React, { useState, useEffect} from "react";
 import axios from "axios";
 import styled from 'styled-components';
 
-// styled components;
 // Components
 import Explanation from './Explanation.js';
 import Date from './Date.js';
@@ -12,6 +11,18 @@ import Title from './Title';
 
 // PLACEHOLDER
 import placeHolderImg from '../../placeholder.jpg';
+
+// styled components;
+const Button = styled.button`
+       width: 100px;
+       border: none;
+       background-color: #0074D9;
+       padding: 10px;
+       border-radius: 5px;
+       margin: 10px; 
+       cursor: pointer;
+`;
+
 const placeHolderText = 'Lorem Ipsum blipsum crimson ripsum shnipsum calipsum blipsum, Lorem Ipsum blipsum crimson ripsum shnipsum calipsum blipsum,Lorem Ipsum blipsum crimson ripsum shnipsum calipsum blipsum. Lorem Ipsum blipsum crimson ripsum shnipsum calipsum blipsum Lorem Ipsum blipsum crimson ripsum shnipsum calipsum blipsumLorem Ipsum blipsum crimson ripsum shnipsum calipsum blipsumLorem Ipsum blipsum crimson ripsum shnipsum calipsum blipsum';
 const placeHolderDate = '07/30/2019';
 const placeHolderTitle = 'Lorem Ipsum';
@@ -60,10 +71,13 @@ const PictureOfTheDay = (props) => {
         </div>
         <div className={pictureClass}>
             <img src={picture} alt='From Nasa' />
+            <Button>View in HD</Button>
         </div>
+       
         <div className="info-paragraph">
             <Explanation explanation={explanation} i={props.i}/>
         </div>
+        
         </>
     )
 };

@@ -50,8 +50,11 @@
 }
 
 .minor-picture {
- padding: 20px;
- margin-left: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+   margin-left: 13px;
 }
 
 .minor-picture img {
