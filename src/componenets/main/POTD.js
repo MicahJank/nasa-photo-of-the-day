@@ -22,6 +22,11 @@ const PictureOfTheDay = (props) => {
     const [date, setDate] = useState(placeHolderDate);
     const [title, setTitle] = useState(placeHolderTitle);
 
+    // main and minor picture are used as a className on the pictures below for either the main one or the minor ones.
+    let pictureClass = props.i === 0 ? 'main-picture' : 'minor-picture';
+    let hideClass = props.i === 0 ? '' : 'hide';
+  
+
     useEffect(() => {
         axios
             .get(`https://api.nasa.gov/planetary/apod?api_key=Fa76I6ybXCSv2LREPYjMwrsJD930bqwZnCYQNqBR&date=${props.date}`)
@@ -34,7 +39,7 @@ const PictureOfTheDay = (props) => {
 
                 setDate(dataObject.data.date);
                 setTitle(dataObject.data.title);
-                console.log(dataObject.data);
+                // console.log(dataObject.data);
 
             })
 
@@ -47,12 +52,11 @@ const PictureOfTheDay = (props) => {
 
     return (
         <>
-        <div className="title-date">
+        <div className={`title-date ${hideClass}`}>
             <Title title={title}/>
             <Date date={date}/>
         </div>
-       
-        <div className="main-picture">
+        <div className={pictureClass}>
             <img src={picture} alt='From Nasa' />
         </div>
         <div className="info-paragraph">
