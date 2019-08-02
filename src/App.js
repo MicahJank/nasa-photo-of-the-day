@@ -26,9 +26,20 @@ function App() {
 
     const daysInMonth = getDaysInMonth(month, year);
   
-    
-    let day = (today.getDate() - number) === 0 ? daysInMonth : (today.getDate() - number) < 0 ? (daysInMonth - (number - 1)) : today.getDate();
-    // console.log((today.getDate() - number), getDaysInMonth((month), year));
+   let day = '0';
+    if ((today.getDate() - number) > 0) {
+      day = today.getDate() - number;
+    } else if ((today.getDate() - number) === 0) {
+      day = daysInMonth;
+    } else {
+      day = daysInMonth + (today.getDate() - number);
+    }
+
+
+    // console.log('day:', day);
+    // console.log('number:', number);
+    // console.log('days in month:', daysInMonth);
+    // console.log('today.getDat:', today.getDate());
 
     if (month < 10) {
       month = `0${month}`;
@@ -37,7 +48,7 @@ function App() {
       day = `0${day}`;
     }
 
-    console.log(`${year}-${month}-${day}`)
+    // console.log(`${year}-${month}-${day}`)
     return `${year}-${month}-${day}`;
   };
 
@@ -45,7 +56,7 @@ function App() {
   // new POTD cards that will display the appropriate image for that day
   const dates = [];
   const dayNums = 7; // change to increase the number of photos displayed
-  console.log(dates);
+  // console.log(dates);
 
 
   // the for loop is needed to fill the dates array with dynamic range of dates so that when i create the
