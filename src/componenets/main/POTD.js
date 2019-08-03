@@ -10,7 +10,7 @@ import Title from './Title';
 
 
 // PLACEHOLDER
-import placeHolderImg from '../../placeholder.jpg';
+import placeHolderImg from '../../lazy-loading.png';
 
 // styled components;
 const Button = styled.button`
