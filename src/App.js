@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import POTD from './componenets/main/POTD.js';
 import Header from './componenets/header/Header.js';
 
@@ -55,7 +55,7 @@ function App() {
   // dates is where i will store up to 7 of the most recent days for the user, dates will then be used to create
   // new POTD cards that will display the appropriate image for that day
   const dates = [];
-  const dayNums = 7; // change to increase the number of photos displayed
+  const dayNums = 15; // change to increase the number of photos displayed
   // console.log(dates);
 
 
@@ -66,14 +66,22 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Header />
-      <div className='POTD-Container'>
-        {dates.map((date, i) => {
-          return <POTD date={date} i={i}/>;
-        })}
+    <>
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+    <div id="title">
+      <div className="App">
+        <Header />
+        <div className='POTD-Container'>
+          {dates.map((date, i) => {
+            return <POTD date={date} i={i}/>;
+          })}
+        </div>
+        
       </div>
     </div>
+    </>
   );
 }
 
